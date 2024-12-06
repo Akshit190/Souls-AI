@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Question Answering</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .chat-box {
+            max-width: 600px;
+            margin: auto;
+        }
+        .chat {
+            margin: 10px 0;
+        }
+        .chat p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-box">
+        <h1>Ask AI</h1>
+        <input type="text" id="question" placeholder="Ask your question..." style="width: 100%; padding: 10px;">
+        <button onclick="askQuestion()" style="margin-top: 10px; padding: 10px;">Send</button>
+        <div id="response" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; min-height: 50px;">
+            <p><strong>AI Response:</strong></p>
+            <p id="answer"></p>
+        </div>
+    </div>
+
+    <script>
+        async function askQuestion() {
+            const question = document.getElementById('question').value;
+            if (!question) {
+                alert('Please enter a question!');
+                return;
+            }
+
+            const responseDiv = document.getElementById('answer');
+            responseDiv.textContent = 'Thinking...';
+
+            try {
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question }),
+                });
+                const data = await response.json();
+                responseDiv.textContent = data.answer;
+            } catch (error) {
+                responseDiv.textContent = 'Error: Unable to fetch answer.';
+            }
+        }
+    </script>
+</body>
+</html>
