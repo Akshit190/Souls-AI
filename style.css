@@ -1,0 +1,85 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d0d0d;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+header.hero {
+    background-image: url('header-image.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    text-align: center;
+    padding: 50px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+header.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #00ffff;
+}
+
+header.hero p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 600px;
+    height: 60vh;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#chat-history {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-bottom: 1px solid #333;
+}
+
+.input-container {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    background-color: #333;
+}
+
+textarea#user-input {
+    flex: 1;
+    resize: none;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #222;
+    color: #fff;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #00ffff;
+    color: #000;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #00cccc;
+}
